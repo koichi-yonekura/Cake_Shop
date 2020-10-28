@@ -1,10 +1,36 @@
 <h2>ジャンル一覧・追加</h2>
 
-  <%= form_for(category) do |f| %>
+  <%= form_for(@category, url: '/admin/categories') do |f| %>
 
-    <strong>ジャンル</strong>
-      <%= f.text_field :name %><br>
+    <a>ジャンル</a>
+    <%= f.text_field :name %>
+      <label><%= f.radio_button :is_active, "有効", {:checked => true} %>有効</label>
+      <label><%= f.radio_button :is_active, "無効" %>無効</label>
+    <%= f.submit '追加', class: "btn btn-primary btn-block" %>
 
-      <%= f.submit '追加', class: "btn btn-primary btn-block" %>
+  <% end %><br>
 
-  <% end %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ジャンル</th><th>状態</th><th></th>
+      </tr>
+    </thead>
+    <% @categories.each do |category| %>
+    <tbody>
+      <tr>
+      	<td>
+      	  <%= category.name %>
+      	</td>
+      	<td>
+      	  <%= category.is_active %>
+      	</td>
+      	<td>
+      	  <button class="btn btn-success">
+      	  	<%= link_to "編集する", edit_admin_category_path(category.id) %>
+      	  </button>
+      	</td>
+      </tr>
+    </tbody>
+    <% end %>
+  </table>
