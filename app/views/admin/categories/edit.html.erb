@@ -1,6 +1,6 @@
 <h2>ジャンル編集</h2>
 
-  <%= form_for(@category, url: '/admin/categories/:id') do |f| %>
+  <%= form_for(@category, url: admin_category_path(@category.id), html: {method: "patch"}) do |f| %>
 
     <a>ジャンル</a>
     <%= f.text_field :name %>

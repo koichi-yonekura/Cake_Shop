@@ -6,7 +6,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.text :introduction, null: false
       t.integer :price, null: false
-      t.boolean :is_active, default: true, null: false
+      t.boolean :is_active, default: "販売中", null: false
 
       t.timestamps
     end
