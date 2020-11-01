@@ -24,7 +24,7 @@
     </tr>
     <tr>
       <td>販売ステータス</td>
-      <td><%= @item.is_active %></td>
+      <td><%= @item.is_active ? '販売中' : '販売停止中' %></td>
     </tr>
   </table>
 

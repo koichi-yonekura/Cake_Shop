@@ -17,7 +17,7 @@
 　　<%= f.number_field :price %>円<br><br>
 
     <span>販売ステータス</span>
-    <%= f.select :is_active, [ ["発売中",1], ["発売停止中", 2] ], prompt: "選択してください" %><br><br>
+    <%= f.select :is_active, [ ["発売中",true], ["発売停止中", false] ], prompt: "選択してください" %><br><br>
 
     <%= f.submit "新規登録" %>
   <% end %>

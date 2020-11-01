@@ -12,27 +12,28 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
 }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope module: :public do
+    root 'homes#top'
+    get 'about' => 'homes#about'
 
-  root 'homes#top'
-  get 'about' => 'homes#about'
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/edit' => 'customers#edit'
+    patch 'customers' => 'customers#update'
+    get 'customers/unsubscribe'
+    patch 'customers/withdrawal'
 
-  get 'end_users/my_page' => 'end_users#show'
-  get 'end_users/edit' => 'end_users#edit'
-  patch 'end_users' => 'end_users#update'
-  get 'end_users/unsubscribe'
-  patch 'end_users/withdrawal'
-
-  resources :items, only: [:index, :show]
+    resources :items, only: [:index, :show]
   
-  resources :cart_items, only: [:create, :index, :update, :destroy]
-  delete 'cart_items/destroy_all'
+    resources :cart_items, only: [:create, :index, :update, :destroy]
+    delete 'cart_items/destroy_all'
 
-  resources :orders, only: [:new, :create, :index, :show]
-  post 'orders/comfirm'
-  get 'orders/complete'
+    resources :orders, only: [:new, :create, :index, :show]
+    post 'orders/comfirm'
+    get 'orders/complete'
   
-  resources :deliveries, except: [:new, :show]
-  
+    resources :deliveries, except: [:new, :show]
+  end
+
   namespace :admin do
     get '/' => 'homes#top'
 
@@ -40,7 +41,7 @@ Rails.application.routes.draw do
 
   	resources :categories, only: [:index, :create, :edit, :update]
 
-  	resources :end_users, only: [:index, :show, :edit, :update]
+  	resources :customers, only: [:index, :show, :edit, :update]
 
     resources :orders, only: [:index, :show, :update]
 
