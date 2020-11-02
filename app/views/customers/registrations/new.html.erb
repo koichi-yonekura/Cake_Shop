@@ -5,77 +5,84 @@
 
 <table>
   <tr>
-    <tb>
+    <td>
       <span>名前</span>
-    </tb>
-    <tb>
-      (姓)<%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-    </tb>
-    <tb>
-      (名)<%= f.text_field :first_name, autocomplete: "first_name" %>
-    </tb>
+    </td>
+    <td>(姓)</td>
+    <td>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    </td>
+    <td>(名)</td>
+    <td>
+      <%= f.text_field :first_name, autocomplete: "first_name" %>
+    </td>
   </tr>
   <tr>
-    <tb>
+    <td>
       <span>フリガナ</span>
-    </tb>
-    <tb>
-      (セイ)<%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %>
-    </tb>
-    <tb>
-      (メイ)<%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
-    </tb>
+    </td>
+    <td>(セイ)</td>
+    <td>
+      <%= f.text_field :last_name_kana, autocomplete: "last_name_kana" %>
+    </td>
+    <td>(メイ)</td>
+    <td>
+      <%= f.text_field :first_name_kana, autocomplete: "first_name_kana" %>
+    </td>
   </tr>
   <tr>
-    <tb>
+    <td>
       <span>メールアドレス</span>
-    </tb>
-    <tb>
+    </td>
+    <td></td>
+    <td>
       <%= f.email_field :email, autocomplete: "email" %>
     </tb>
   </tr>
   <tr>
-    <tb>
+    <td>
       <span>郵便番号(ハイフンなし)</span>
-    </tb>
-    <tb>
+    </td>
+    <td></td>
+    <td>
       <%= f.text_field :postal_code, autocomplete: "postal_code" %>
-    </tb>
+    </td>
   </tr>
   <tr>
-    <tb>
+    <td>
       <span>住所</span>
-    </tb>
-    <tb>
+    </td>
+    <td></td>
+    <td colspan ="3">
       <%= f.text_field :address, autocomplete: "address" %>
-    </tb>
+    </td>
   </tr>
   <tr>
-    <tb>
+    <td>
       <span>電話番号(ハイフンなし)</span>
-    </tb>
-    <tb>
+    </td>
+    <td></td>
+    <td>
       <%= f.telephone_field :phon_number, autocomplete: "phone_number" %>
-    </tb>
+    </td>
   </tr>
   <tr>
-    <tb>
+    <td>
      <span>パスワード(6文字以上)</span>
-    </tb>
-    <tb>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
+    </td>
+    <td></td>
+    <td>
       <%= f.password_field :password, autocomplete: "new-password" %>
-    </tb>
+    </td>
   </tr>
   <tr>
-    <tb>
+    <td>
       <span>パスワード(確認用)</span>
-    </tb>
-    <tb>
+    </td>
+    <td></td>
+    <td>
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </tb>
+    </td>
   </tr>
 </table>
 
