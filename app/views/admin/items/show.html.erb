@@ -1,0 +1,33 @@
+<h2>商品詳細</h2>
+
+  <table class="table">
+    <tr>
+      <td>
+        <%= attachment_image_tag @item, :item_image, :fill, 100, 100, format: 'jpeg' %>
+      </td>
+    </tr>
+    <tr>
+      <td>商品名</td>
+      <td><%= @item.name %></td>
+    </tr>
+    <tr>
+      <td>商品名</td>
+      <td><%= @item.introduction %></td>
+    </tr>
+    <tr>
+      <td>ジャンル</td>
+      <td><%= @category.name %></td>
+    </tr>
+    <tr>
+      <td>税抜価格</td>
+      <td><%= @item.price %>円</td>
+    </tr>
+    <tr>
+      <td>販売ステータス</td>
+      <td><%= @item.is_active ? '販売中' : '販売停止中' %></td>
+    </tr>
+  </table>
+
+  <button class="btn btn-success">
+    <%= link_to "編集する", edit_admin_item_path(@item.id) %>
+  </button>

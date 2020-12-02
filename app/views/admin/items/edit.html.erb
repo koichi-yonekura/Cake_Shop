@@ -1,0 +1,23 @@
+<h2>商品編集</h2>
+
+  <%= form_for(@item, url: admin_item_path(@item.id), html: {method: "patch"}) do |f| %>
+    <%= f.attachment_field :item_image, placeholder: "商品画像", class: "user-edit-form" %><br><br>
+
+    <span>商品名</span>
+    <%= f.text_field :name, autofocus: true %><br><br>
+
+
+    <span>商品説明</span>
+    <%= f.text_area :introduction, autofocus: true %><br><br>
+
+    <span>ジャンル</span>
+    <%= f.collection_select(:category_id, @categories, :id, :name, {prompt: "選択してください"}) %><br><br>
+
+    <span>税抜価格</span>
+　　<%= f.number_field :price %>円<br><br>
+
+    <span>販売ステータス</span>
+    <%= f.select :is_active, [ ["発売中",1], ["発売停止中", 2] ], prompt: "選択してください" %><br><br>
+
+    <%= f.submit "変更を保存" %>
+  <% end %>
